@@ -19,5 +19,8 @@
   "bugs": {
     "url": "https://github.com/brandovidal/aprendiendo-react/issues"
   },
-  "homepage": "https://github.com/brandovidal/aprendiendo-react#readme"
+  "homepage": "https://github.com/brandovidal/aprendiendo-react#readme",
+  "devDependencies": {
+    "standard": "17.1.0"
+  }
 }
