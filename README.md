@@ -7,7 +7,7 @@ Curso para aprender React basado en proyectos
 | Número | Proyecto | Código | Web |
 | --- | --- | --- | --- |
 | `02` | Tic Tac Toe | [Ver](projects/02-tic-tac-toe/) | [Visitar](https://react-02-tic-tac-toe.netlify.app/) |
-<!-- | `03` | Mouse Follower | [Ver](projects/03-mouse-follower) | [Visitar](https://react-03-mouse-follower.netlify.app/) | -->
+| `03` | Mouse Follower | [Ver](projects/03-mouse-follower) | [Visitar](https://react-03-mouse-follower.netlify.app/) |
 <!-- | `04` | Prueba técnica con Promesas, fetching y testing E2E | [Ver](projects/04-react-prueba-tecnica) | [Visitar](https://midu-react-04.surge.sh) | -->
 <!-- | `05` | Prueba técnica con formularios, buscador utilizando una API | [Ver](projects/05-react-buscador-peliculas) | [Visitar](https://midu-react-05.surge.sh) | -->
 <!-- | `06` | Creación de un ecommerce con carrito de compras | [Ver](projects/06-shopping-cart) | [Visitar](https://midu-react-06.surge.sh) | -->
