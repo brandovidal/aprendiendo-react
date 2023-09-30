@@ -1,9 +1,12 @@
-import './App.css'
+const TURNS = {
+  X: 'X',
+  O: 'O'
+}
 
 function App () {
   return (
     <>
-      <h1>tic Tac Toe</h1>
+      <h1>Tic Tac Toe</h1>
     </>
   )
 }
