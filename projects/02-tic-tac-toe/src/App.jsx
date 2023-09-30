@@ -7,6 +7,7 @@ import { WinnerModal } from './components/WinnerModal'
 import { TURNS } from './constants/global'
 
 import { checkEndGame, checkWinnerFrom } from './logic/board'
+import { resetGameStorage, saveGameToStorage } from './logic/storage'
 
 function App () {
   const [board, setBoard] = useState(() => {
@@ -36,8 +37,7 @@ function App () {
     const newTurn = turn === TURNS.X ? TURNS.O : TURNS.X
     setTurn(newTurn)
 
-    window.localStorage.setItem('board', JSON.stringify(newBoard))
-    window.localStorage.setItem('turn', newTurn)
+    saveGameToStorage({ newBoard, newTurn })
 
     const newWinner = checkWinnerFrom(newBoard)
     if (newWinner) {
@@ -52,6 +52,8 @@ function App () {
     setBoard(Array(9).fill(null))
     setTurn(TURNS.X)
     setWinner(null)
+
+    resetGameStorage()
   }
 
   return (
