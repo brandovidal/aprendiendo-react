@@ -14,6 +14,9 @@ importers:
 
   projects/02-tic-tac-toe:
     dependencies:
+      canvas-confetti:
+        specifier: 1.6.1
+        version: 1.6.1
       react:
         specifier: ^18.2.0
         version: 18.2.0
@@ -642,6 +645,10 @@ packages:
     resolution: {integrity: sha512-P8BjAsXvZS+VIDUI11hHCQEv74YT67YUi5JJFNWIqL235sBmjX4+qx9Muvls5ivyNENctx46xQLQ3aTuE7ssaQ==}
     engines: {node: '>=6'}
     dev: true
+
+  /canvas-confetti@1.6.1:
+    resolution: {integrity: sha512-CgGR5DL9+dkne4AwcpvWQc0LIQq43yDIxlwdZcyrq3yklricNfuPHoOSoM6Ya7yCQ+sXmZ2iNV2feiKjVG8C1g==}
+    dev: false
 
   /chalk@4.1.2:
     resolution: {integrity: sha512-oKnbhFyRIXpUuez8iBMmyEa4nbj4IOQyuhc/wy9kY7/WVPcwIO9VA668Pu8RkO7+0G76SLROeyw9CpQ061i4mA==}
