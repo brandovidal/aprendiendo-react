@@ -4,8 +4,12 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "lint": "standard",
+    "lint-fix": "standard --fix"
   },
+  "workspaces": [
+    "projects/*"
+  ],
   "repository": {
     "type": "git",
     "url": "git+https://github.com/brandovidal/aprendiendo-react.git"
