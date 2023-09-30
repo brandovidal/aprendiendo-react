@@ -9,8 +9,21 @@ import { TURNS } from './constants/global'
 import { checkEndGame, checkWinnerFrom } from './logic/board'
 
 function App () {
-  const [board, setBoard] = useState(Array(9).fill(null))
-  const [turn, setTurn] = useState(TURNS.X)
+  const [board, setBoard] = useState(() => {
+    const boardFromLocalStorage = JSON.parse(
+      window.localStorage.getItem('board')
+    )
+
+    if (boardFromLocalStorage) {
+      return boardFromLocalStorage
+    }
+    return Array(9).fill(null)
+  })
+
+  const [turn, setTurn] = useState(() => {
+    const turnFromLocalStorage = window.localStorage.getItem('turn')
+    return turnFromLocalStorage ?? TURNS.X
+  })
   const [winner, setWinner] = useState(null)
 
   const uptateBoard = index => {
@@ -22,6 +35,9 @@ function App () {
 
     const newTurn = turn === TURNS.X ? TURNS.O : TURNS.X
     setTurn(newTurn)
+
+    window.localStorage.setItem('board', JSON.stringify(newBoard))
+    window.localStorage.setItem('turn', newTurn)
 
     const newWinner = checkWinnerFrom(newBoard)
     if (newWinner) {
