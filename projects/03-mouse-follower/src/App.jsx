@@ -2,21 +2,33 @@ import { useEffect, useState } from 'react'
 
 import './App.css'
 
-function App () {
-  const [enable, setEnable] = useState(false)
+const FollowMouse = () => {
+  const [enabled, setEnable] = useState(false)
+  const [position, setPosition] = useState({ x: 0, y: 0 })
 
   useEffect(() => {
-    console.log({ enable })
-  }, [enable])
+    console.log({ enabled })
+
+    const handleMove = event => {
+      const { clientX, clientY } = event
+      setPosition({ x: clientX, y: clientY })
+    }
+
+    if (enabled) {
+      window.addEventListener('pointermove', handleMove)
+    }
+
+    return () => {
+      window.removeEventListener('pointermove', handleMove)
+    }
+  }, [enabled])
 
   return (
     <>
-      <h1>Project 3</h1>
-
       <div
         style={{
           position: 'absolute',
-          backgroundColor: 'rgba(0, 0, 0, 0.5)',
+          backgroundColor: '#89f',
           border: '1px solid #fff',
           borderRadius: '50%',
           opacity: 0.8,
@@ -25,13 +37,21 @@ function App () {
           top: -25,
           width: 50,
           height: 50,
-          transform: 'translate(0px, 0px)'
+          transform: `translate(${position.x}px, ${position.y}px)`
         }}
       />
-      <button onClick={() => setEnable(!enable)}>
-        {enable ? 'Disable' : 'Enable'} follow pointer
+      <button onClick={() => setEnable(!enabled)}>
+        {enabled ? 'Disable' : 'Enable'} follow pointer
       </button>
     </>
+  )
+}
+
+function App () {
+  return (
+    <main>
+      <FollowMouse />
+    </main>
   )
 }
 
