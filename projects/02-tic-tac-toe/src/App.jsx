@@ -7,13 +7,11 @@ import { WinnerModal } from './components/WinnerModal'
 import { TURNS } from './constants/global'
 
 import { checkEndGame, checkWinnerFrom } from './logic/board'
-import { resetGameStorage, saveGameToStorage } from './logic/storage'
+import { getBoardFromStorage, getTurnFromStorage, resetGameStorage, saveGameToStorage } from './logic/storage'
 
 function App () {
   const [board, setBoard] = useState(() => {
-    const boardFromLocalStorage = JSON.parse(
-      window.localStorage.getItem('board')
-    )
+    const boardFromLocalStorage = getBoardFromStorage()
 
     if (boardFromLocalStorage) {
       return boardFromLocalStorage
@@ -22,7 +20,7 @@ function App () {
   })
 
   const [turn, setTurn] = useState(() => {
-    const turnFromLocalStorage = window.localStorage.getItem('turn')
+    const turnFromLocalStorage = getTurnFromStorage()
     return turnFromLocalStorage ?? TURNS.X
   })
   const [winner, setWinner] = useState(null)
