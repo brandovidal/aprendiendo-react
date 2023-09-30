@@ -1,4 +1,5 @@
 import { useState } from 'react'
+import confetti from 'canvas-confetti'
 
 const TURNS = {
   X: 'X',
@@ -36,14 +37,22 @@ function App () {
   const [turn, setTurn] = useState(TURNS.X)
   const [winner, setWinner] = useState(null)
 
-  const checkWinner = (boardToCheck) => {
+  const checkWinner = boardToCheck => {
     for (const combo of WINNER_COMBOS) {
       const [a, b, c] = combo
-      if (boardToCheck[a] && boardToCheck[a] === boardToCheck[b] && boardToCheck[a] === boardToCheck[c]) {
+      if (
+        boardToCheck[a] &&
+        boardToCheck[a] === boardToCheck[b] &&
+        boardToCheck[a] === boardToCheck[c]
+      ) {
         return boardToCheck[a]
       }
     }
     return null
+  }
+
+  const checkEndGame = boardToCheck => {
+    return boardToCheck.every(square => square !== null)
   }
 
   const uptateBoard = index => {
@@ -59,25 +68,54 @@ function App () {
     const newWinner = checkWinner(newBoard)
     if (newWinner) {
       setWinner(newWinner)
+      confetti()
+    } else if (checkEndGame(newBoard)) {
+      setWinner(false)
     }
+  }
+
+  const resetGame = () => {
+    setBoard(Array(9).fill(null))
+    setTurn(TURNS.X)
+    setWinner(null)
   }
 
   return (
     <main className='board'>
       <h1>Tic Tac Toe</h1>
+
+      <button onClick={resetGame}>Restart</button>
+
       <section className='game'>
-        {board.map((_, index) => {
+        {board.map((square, index) => {
           return (
             <Square key={index} index={index} uptateBoard={uptateBoard}>
-              {board[index]}
+              {square}
             </Square>
           )
         })}
       </section>
+
       <section className='turn'>
         <Square isSelected={turn === TURNS.X}>{TURNS.X}</Square>
         <Square isSelected={turn === TURNS.O}>{TURNS.O}</Square>
       </section>
+
+      {winner !== null && (
+        <section className='winner'>
+          <div className='text'>
+            <h1>{winner === false ? 'Tie' : 'winner'}</h1>
+
+            <header className='win'>
+              {winner && <Square>{winner}</Square>}
+            </header>
+
+            <footer>
+              <button onClick={resetGame}>Restart</button>
+            </footer>
+          </div>
+        </section>
+      )}
     </main>
   )
 }
