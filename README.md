@@ -5,8 +5,8 @@
 
 | Número | Proyecto | Código | Web |
 | --- | --- | --- | --- | -->
-<!-- | `01` | Twitter Follow Card | [Ver](projects/01-twitter-follow-card/) | [Visitar](https://midu-react-01.surge.sh) | -->
-<!-- | `02` | Tic Tac Toe | [Ver](projects/02-tic-tac-toe/) | [Visitar](https://midu-react-02.surge.sh) | -->
+| `01` | Twitter Follow Card | [Ver](projects/01-twitter-follow-card/) | [Visitar](https://react-02-tic-tac-toe.netlify.app/) |
+<!-- | `02` | Tic Tac Toe | [Ver](projects/02-tic-tac-toe/) | [Visitar](https://react-03-mouse-follower.netlify.app/) | -->
 <!-- | `03` | Mouse Follower | [Ver](projects/03-mouse-follower) | [Visitar](https://midu-react-03.surge.sh) |
 | `04` | Prueba técnica con Promesas, fetching y testing E2E | [Ver](projects/04-react-prueba-tecnica) | [Visitar](https://midu-react-04.surge.sh) |
 | `05` | Prueba técnica con formularios, buscador utilizando una API | [Ver](projects/05-react-buscador-peliculas) | [Visitar](https://midu-react-05.surge.sh) |
