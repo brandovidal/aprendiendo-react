@@ -8,9 +8,12 @@
     "build": "vite build",
     "preview": "vite preview",
     "lint": "standard",
-    "lint-fix": "standard --fix"
+    "lint-fix": "standard --fix",
+    "test": "pnpm playwright test"
   },
   "devDependencies": {
+    "@playwright/test": "^1.38.1",
+    "@types/node": "^20.8.0",
     "@vitejs/plugin-react": "4.1.0",
     "standard": "17.1.0",
     "vite": "^4.4.5"
