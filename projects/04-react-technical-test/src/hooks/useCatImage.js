@@ -1,5 +1,8 @@
 import { useEffect, useState } from 'react'
+
 import { getImageUrl } from '../services/image-url'
+
+import { CAT_ENDPOINT_IMAGE_URL } from '../contants'
 
 export function useCatImage ({ fact }) {
   const [imageUrl, setImageUrl] = useState()
@@ -10,5 +13,5 @@ export function useCatImage ({ fact }) {
 
   useEffect(refreshImageUrl, [fact])
 
-  return { imageUrl }
+  return { imageUrl: imageUrl && `${CAT_ENDPOINT_IMAGE_URL}/${imageUrl}` }
 }

@@ -1,5 +1,3 @@
-import { CAT_ENDPOINT_IMAGE_URL } from './contants'
-
 import { useCatImage } from './hooks/useCatImage'
 import { useCatFact } from './hooks/useCatFact'
 
@@ -21,7 +19,7 @@ function App () {
 
       {imageUrl && (
         <img
-          src={`${CAT_ENDPOINT_IMAGE_URL}/${imageUrl}`}
+          src={imageUrl}
           alt={`Image extracted using the first word for ${fact}`}
         />
       )}
