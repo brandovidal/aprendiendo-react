@@ -11,7 +11,7 @@ function App () {
 
   return (
     <main>
-      <div>App de gatitos</div>
+      <h1>App de gatitos</h1>
 
       <button onClick={handleClick}>Get cat</button>
 
