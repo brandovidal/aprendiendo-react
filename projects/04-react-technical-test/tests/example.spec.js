@@ -4,7 +4,7 @@ import { CAT_ENDPOINT_IMAGE_URL } from '../src/contants'
 
 const LOCALHOST_URL = 'http://localhost:5173'
 
-test('has title', async ({ page }) => {
+test('app shows random fact and image', async ({ page }) => {
   await page.goto(LOCALHOST_URL)
 
   const text = page.getByRole('paragraph')
