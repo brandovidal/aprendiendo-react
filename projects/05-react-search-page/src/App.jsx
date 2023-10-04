@@ -1,3 +1,4 @@
+import { useState } from 'react'
 import './App.css'
 
 import { Movies } from './components/Movies'
@@ -6,12 +7,17 @@ import { useMovies } from './hooks/useMovies'
 import { useSearch } from './hooks/useSearch'
 
 function App () {
+  const [sort, setSort] = useState(false)
   const { search, uptadeSearch, error } = useSearch()
-  const { movies, getMovies, loading } = useMovies({ search })
+  const { movies, getMovies, loading } = useMovies({ search, sort })
 
   const handleSubmit = event => {
     event.preventDefault()
     getMovies()
+  }
+
+  const handleSort = () => {
+    setSort(!sort)
   }
 
   const handleChange = event => {
@@ -31,6 +37,7 @@ function App () {
               onChange={handleChange}
               placeholder='Avengers, Star wars, Interstelar'
             />
+            <input type='checkbox' onChange={handleSort} value={sort} />
             <button type='submit'>Search</button>
           </div>
           {error && <small style={{ color: 'red' }}>{error}</small>}
