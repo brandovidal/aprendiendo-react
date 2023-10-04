@@ -1,4 +1,4 @@
-function mappedMovies (movies) {
+function mappedMovies (movies = []) {
   return movies.map(movie => ({
     id: movie.imdbID,
     title: movie.Title,
@@ -9,7 +9,7 @@ function mappedMovies (movies) {
 }
 
 export async function searchMovies ({ search }) {
-  if (search === '') return null
+  if (search === '') return []
 
   try {
     return fetch(`https://www.omdbapi.com/?apikey=46dde19a&s=${search}`)
