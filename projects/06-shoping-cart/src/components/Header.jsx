@@ -1,10 +1,11 @@
 import Filters from './Filters'
 
-function Header () {
+// eslint-disable-next-line react/prop-types
+function Header ({ changeFilters }) {
   return (
     <header>
       <h1>React Shop</h1>
-      <Filters />
+      <Filters onChange={changeFilters} />
     </header>
   )
 }
