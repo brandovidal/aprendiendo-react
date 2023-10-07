@@ -13,6 +13,7 @@ function Filters () {
   const categoryFilterId = useId()
 
   const handleChangeMinPrice = event => {
+    // TODO: dos fuentes de la verdad
     setMinPrice(event.target.value)
     setFilters(prevState => ({
       ...prevState,

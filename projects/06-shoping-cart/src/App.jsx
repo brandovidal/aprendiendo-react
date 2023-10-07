@@ -9,8 +9,8 @@ import { Footer } from './components/Footer'
 import { useFilters } from './hooks/useFilters'
 
 function App () {
-  const [products, setProducts] = useState(initialProducts)
-  const { filterProducts, setFilters } = useFilters()
+  const [products] = useState(initialProducts)
+  const { filterProducts } = useFilters()
 
   const filteredProducts = filterProducts(products)
 
