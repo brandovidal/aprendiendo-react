@@ -1,9 +1,14 @@
+import { useContext } from 'react'
 import { AddToCartIcon } from './Icons'
+
+import { CartContext } from '../context/cart'
 
 import './Products.css'
 
 // eslint-disable-next-line react/prop-types
 function Products ({ products = [] }) {
+  const { addCart } = useContext(CartContext)
+
   return (
     <main className='products'>
       <ul>
@@ -14,7 +19,7 @@ function Products ({ products = [] }) {
               <strong>{product.title}</strong> - <span>$ {product.price}</span>
             </div>
             <div>
-              <button>
+              <button onClick={() => addCart(product)}>
                 <AddToCartIcon />
               </button>
             </div>
@@ -25,4 +30,4 @@ function Products ({ products = [] }) {
   )
 }
 
-export default Products
+export { Products }
