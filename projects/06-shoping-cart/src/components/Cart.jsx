@@ -1,11 +1,16 @@
-import { useId } from 'react'
+import { useContext, useId } from 'react'
 
 import { CartIcon, ClearCartIcon } from './Icons'
+
+import { CartContext } from '../context/cart'
 
 import './Cart.css'
 
 function Cart () {
   const cartChekboxId = useId()
+
+  const { cart } = useContext(CartContext)
+  console.log('🚀 ~ file: Cart.jsx:12 ~ Cart ~ cart:', cart)
 
   return (
     <>
