@@ -7,7 +7,7 @@ import './Products.css'
 
 // eslint-disable-next-line react/prop-types
 function Products ({ products = [] }) {
-  const { cart, addCart, removeFromCart } = useContext(CartContext)
+  const { cart, addToCart, removeFromCart } = useContext(CartContext)
 
   function checkProductInCart (product) {
     return cart.some(item => item.id === product.id)
@@ -31,8 +31,7 @@ function Products ({ products = [] }) {
                     backgroundColor: isProductInCart ? 'tomato' : 'auto'
                   }}
                   onClick={() => {
-                    console.log({ isProductInCart })
-                    isProductInCart ? removeFromCart(product) : addCart(product)
+                    isProductInCart ? removeFromCart(product) : addToCart(product)
                   }}
                 >
                   {isProductInCart ? <RemoveFromCartIcon /> : <AddToCartIcon />}
