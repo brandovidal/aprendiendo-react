@@ -1,5 +1,6 @@
 import Filters from './Filters'
 
+// eslint-disable-next-line react/prop-types
 function Header () {
   return (
     <header>
@@ -9,4 +10,4 @@ function Header () {
   )
 }
 
-export default Header
+export { Header }
