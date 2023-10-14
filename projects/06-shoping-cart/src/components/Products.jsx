@@ -28,7 +28,7 @@ function Products ({ products = [] }) {
               <div>
                 <button
                   style={{
-                    backgroundColor: isProductInCart ? 'tomato' : 'auto'
+                    backgroundColor: isProductInCart ? 'tomato' : 'transparent'
                   }}
                   onClick={() => {
                     isProductInCart ? removeFromCart(product) : addToCart(product)
