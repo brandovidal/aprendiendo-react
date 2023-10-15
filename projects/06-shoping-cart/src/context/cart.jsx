@@ -1,46 +1,26 @@
 import { createContext, useReducer } from 'react'
 
+import { cartInitialState, cartReducer } from '../reducer/cart'
+
 export const CartContext = createContext()
 
-const initialState = []
-const reducer = (state, action) => {
-  const { type: actionType, payload: payloadAction } = action
+function useCartReducer () {
+  const [state, dispatch] = useReducer(cartReducer, cartInitialState)
 
-  switch (actionType) {
-    case 'ADD_TO_CART': {
-      const { id } = payloadAction
-      const productInCartIndex = state.findIndex(item => item.id === id)
+  const addToCart = product =>
+    dispatch({ type: 'ADD_TO_CART', payload: product })
 
-      if (productInCartIndex >= 0) {
-        const newState = structuredClone(state)
-        newState[productInCartIndex].quantity += 1
-        return newState
-      }
+  const removeFromCart = product =>
+    dispatch({ type: 'REMOVE_FROM_CART', payload: product })
 
-      return [...state, { ...payloadAction, quantity: 1 }]
-    }
+  const clearCart = () => dispatch({ type: 'CLEAR_CART' })
 
-    case 'REMOVE_FROM_CART': {
-      const { id } = payloadAction
-      return state.filter(item => item.id !== id)
-    }
-
-    case 'CLEAR_CART': {
-      return initialState
-    }
-  }
-  return state
+  return { state, addToCart, removeFromCart, clearCart }
 }
 
 // eslint-disable-next-line react/prop-types
 export function CartProvider ({ children }) {
-  const [state, dispatch] = useReducer(reducer, initialState)
-
-  const addToCart = product => dispatch({ type: 'ADD_TO_CART', payload: product })
-
-  const removeFromCart = product => dispatch({ type: 'REMOVE_FROM_CART', payload: product })
-
-  const clearCart = () => dispatch({ type: 'CLEAR_CART' })
+  const { state, addToCart, removeFromCart, clearCart } = useCartReducer()
 
   return (
     <CartContext.Provider
