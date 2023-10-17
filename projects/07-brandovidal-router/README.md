@@ -1,6 +1,6 @@
 # Crea un React Router desde cero
 
-- [ ] Instalar el linter
+- ✅ Instalar el linter
 - [ ] Crear una forma de hacer MPAs (Multiple Page Application)
 - [ ] Crea una forma de hacer SPAs (Single Page Applications)
 - [ ] Poder navegar entre páginas con el botón de atrás
