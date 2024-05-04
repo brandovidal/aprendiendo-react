@@ -33,8 +33,5 @@
       "no-unused-vars": "warn",
       "react/prop-types": "off"
     }
-  },
-  "standard": {
-    "parser": "babel-eslint"
   }
 }
